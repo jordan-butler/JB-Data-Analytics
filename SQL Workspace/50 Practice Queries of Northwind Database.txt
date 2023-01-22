@@ -1,7 +1,5 @@
 				50 Practice Queries of Northwind Database
 
-* There's probably some inner joins that should be left/right joins but oh well
-
 -- 1. Create a report that shows the CategoryName and Description from the categories 
 -- table sorted by CategoryName.
 
