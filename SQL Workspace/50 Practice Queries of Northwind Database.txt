@@ -1,0 +1,627 @@
+				50 Practice Queries of Northwind Database
+
+* There's probably some inner joins that should be left/right joins but oh well
+
+-- 1. Create a report that shows the CategoryName and Description from the categories 
+-- table sorted by CategoryName.
+
+SELECT c.categoryname, c.description 
+FROM categories c
+ORDER BY c.categoryname ASC
+
+-- 2. Create a report that shows the ContactName, CompanyName, ContactTitle and Phone 
+-- number from the customers table sorted by Phone.
+
+SELECT c.contactname, c.companyname, c.contacttitle, c.phone
+FROM customers c
+ORDER BY c.phone ASC
+
+-- 3. Create a report that shows the capitalized FirstName and capitalized LastName 
+-- renamed as FirstName and Lastname respectively and HireDate from the employees 
+-- table sorted from the newest to the oldest employee.
+
+SELECT INITCAP(e.firstname) "FirstName", INITCAP(e.lastname) "LastName", e.hiredate
+FROM employees e
+ORDER BY e.hiredate ASC
+
+-- 4. Create a report that shows the top 10 OrderID, OrderDate, ShippedDate, 
+-- CustomerID, Freight from the orders table sorted by Freight in descending order.
+
+SELECT o.orderid, o.orderdate, o.shippeddate, o.customerid, o.freight
+FROM orders o
+ORDER BY freight DESC
+LIMIT 10
+
+-- 5. Create a report that shows all the CustomerID in lowercase letter and renamed 
+-- as ID from the customers table.
+
+SELECT LOWER(c.customerid) "ID"
+FROM customers c
+
+-- 6. Create a report that shows the CompanyName, Fax, Phone, Country, HomePage from 
+-- the suppliers table sorted by the Country in descending order then by CompanyName 
+-- in ascending order.
+
+SELECT s.companyname, s.fax, s.phone, s.country, s.homepage
+FROM suppliers s
+ORDER BY s.country DESC, s.companyname ASC
+
+-- 7. Create a report that shows CompanyName, ContactName of all customers from 
+-- ‘Buenos Aires' only
+
+SELECT c.companyname, c.contactname
+FROM customers c
+WHERE c.city = 'Buenos Aires'
+
+-- 8. Create a report showing ProductName, UnitPrice, QuantityPerUnit of products 
+-- that are out of stock.
+
+SELECT p.productname, p.unitprice, p.quantityperunit
+FROM products p
+WHERE p.discontinued = 1
+
+-- 9. Create a report showing all the ContactName, Address, City of all customers 
+-- not from Germany, Mexico, Spain.
+
+SELECT c.contactname, c.address, c.city
+FROM customers c
+WHERE c.country NOT IN ('Germany', 'Mexico', 'Spain')
+
+-- 10. Create a report showing OrderDate, ShippedDate, CustomerID, Freight of all 
+-- orders placed on 21 May 1997.
+
+SELECT o.orderdate, o.shippeddate, o.customerid, o.freight
+FROM orders o
+WHERE o.orderdate = '1997-05-21'
+
+-- 11. Create a report showing FirstName, LastName, Country from the employees not 
+-- from United States.
+
+SELECT e.firstname, e.lastname, e.country
+FROM employees e
+WHERE e.country != 'USA'
+
+-- 12. Create a report that shows the EmployeeID, OrderID, CustomerID, RequiredDate, 
+-- ShippedDate from all orders shipped later than the required date.
+
+SELECT o.employeeid, o.orderid, o.customerid, o.requireddate, o.shippeddate
+FROM orders o
+WHERE o.shippeddate > o.requireddate
+
+-- 13. Create a report that shows the City, CompanyName, ContactName of customers 
+-- from cities starting with A or B.
+
+SELECT c.city, c.companyname, c.contactname    -- DOES WORK
+FROM customers c
+WHERE c.city LIKE 'A%' OR c.city LIKE 'B%'
+
+SELECT c.city, c.companyname, c.contactname    -- DOES WORK
+FROM customers c
+WHERE c.city ILIKE ANY('{a%,b%}')
+
+SELECT c.city, c.companyname, c.contactname    -- DOESN'T WORK BUT SHOULD
+FROM customers c
+WHERE c.city LIKE '[AB]%'
+
+-- 14. Create a report showing all the even numbers of OrderID from the orders table.
+
+SELECT o.orderid 
+FROM orders o
+WHERE MOD(o.orderid,2) = 0
+
+-- 15. Create a report that shows all the orders where the freight cost more than 
+-- $500.
+
+SELECT * 
+FROM orders o
+WHERE o.freight > 500
+
+-- 16. Create a report that shows the ProductName, UnitsInStock, UnitsOnOrder, 
+-- ReorderLevel of all products that are up for reorder.
+
+SELECT p.productname, p.unitsinstock, p.unitsonorder, p.reorderlevel
+FROM products p
+WHERE p.unitsinstock + p.unitsonorder < p.reorderlevel
+
+-- 17. Create a report that shows the CompanyName, ContactName, and phone number for 
+-- all customers that have no fax number.
+
+SELECT c.companyname, c.contactname, c.phone
+FROM customers c
+WHERE c.fax IS NULL
+
+-- 18. Create a report that shows the FirstName, LastName of all employees that do not
+-- report to anybody.
+
+SELECT e.firstname, e.lastname 
+FROM employees e
+WHERE e.reportsto IS NULL
+
+-- 19. Create a report showing all the odd numbers of OrderID from the orders table.
+
+SELECT o.orderid
+FROM orders o
+WHERE MOD(o.orderid,2) != 0
+
+-- 20. Create a report that shows the CompanyName, ContactName, Fax of all customers 
+-- that do not have Fax number and sorted by ContactName.
+
+SELECT c.companyname, c.contactname, c.fax
+FROM customers c
+WHERE c.fax IS NULL 
+ORDER BY c.contactname ASC
+
+-- 21. Create a report that shows the City, CompanyName, ContactName of customers 
+-- from cities that has letter L in the name sorted by ContactName.
+
+SELECT c.city, c.companyname, c.contactname
+FROM customers c
+WHERE c.city ILIKE '%l%'
+ORDER BY c.contactname
+
+-- 22. Create a report that shows the FirstName, LastName, BirthDate of employees
+-- born in the 1950s.
+
+SELECT e.firstname, e.lastname, e.birthdate
+FROM employees e
+WHERE EXTRACT(YEAR FROM e.birthdate) BETWEEN 1950 AND 1959
+
+-- 23. Create a report that shows the FirstName, LastName, the year of Birthdate as 
+-- birth year from the employees table.
+
+SELECT e.firstname, e.lastname, EXTRACT(YEAR FROM e.birthdate) birthyear
+FROM employees e
+
+-- 24. Create a report showing OrderID, total number of Order ID as NumberofProducts 
+-- from the orderdetails table grouped by OrderID and sorted by NumberofProducts in 
+-- descending order. HINT: you will need to use a Groupby statement.
+
+SELECT od.orderid, COUNT(od.productid) NumberOfProducts
+FROM order_details od
+GROUP BY od.orderid
+ORDER BY NumberOfProducts DESC
+
+-- 25. Create a report that shows the SupplierID, ProductName, CompanyName from all 
+-- product Supplied by Exotic Liquids, Specialty Biscuits, Ltd., Escargots Nouveaux 
+-- sorted by the supplier ID.
+
+SELECT p.supplierid, p.productname, s.companyname
+FROM products p
+INNER JOIN suppliers s ON p.supplierid = s.supplierid
+WHERE p.supplierid IN (1,8,27)
+ORDER BY p.supplierid ASC
+
+-- 26. Create a report that shows the ShipPostalCode, OrderID, OrderDate, 
+-- RequiredDate, ShippedDate, ShipAddress of all orders with ShipPostalCode 
+-- beginning with "98124".
+
+SELECT o.shippostalcode, o.orderid, o.orderdate, o.requireddate, o.shippeddate, 
+	o.shipaddress
+FROM orders o
+WHERE o.shippostalcode LIKE '98124%'
+
+-- 27. Create a report that shows the ContactName, ContactTitle, CompanyName of 
+-- customers that do not have "Sales" in their ContactTitle.
+
+SELECT c.contactname, c.contacttitle, c.companyname
+FROM customers c
+WHERE c.contacttitle NOT ILIKE '%Sales%'
+
+-- 28. Create a report that shows the LastName, FirstName, City of employees in 
+-- cities other than "Seattle";
+
+SELECT e.lastname, e.firstname, e.city
+FROM employees e
+WHERE NOT city = 'Seattle'
+
+-- 29. Create a report that shows the CompanyName, ContactTitle, City, Country of 
+-- all customers in any city in Mexico or any city in Spain other than Madrid.
+
+SELECT c.companyname, c.contacttitle, c.city, c.country
+FROM customers c
+WHERE c.country IN ('Mexico', 'Spain') AND c.city != 'Madrid'
+--WHERE (c.county = 'Mexico') OR (c.country = 'Spain' AND c.city != 'Madrid)
+
+-- 30. Create a select statement that outputs the following: (contactname can be 
+-- reached at phone) with column name 'Contactinfo'
+
+SELECT s.contactname || ' can be reached at ' || s.phone AS "Contactinfo"
+FROM suppliers s
+
+-- 31. Create a report that shows the ContactName of all customers that do not have 
+-- letter A as the second letter in their name.
+
+SELECT c.contactname
+FROM customers c
+WHERE c.contactname NOT ILIKE '_a%'
+
+-- 32. Create a report that shows the average UnitPrice rounded up to the next whole 
+-- number, total price of UnitsInStock rounded to two decimal points, and highest 
+-- number of orders from the products table. All saved as AveragePrice, TotalStock 
+-- and TotalNumberedOrdered respectively.
+
+SELECT CEIL(AVG(p.unitprice)) "AveragePrice", 
+	ROUND(CAST(SUM(p.unitprice * p.unitsinstock) AS NUMERIC), 2) "TotalStock"
+FROM products p
+		-- don't know how to combine --
+SELECT p.productid, p.productname, SUM(od.quantity) "TotalNumberOrdered"
+FROM order_details od
+INNER JOIN products p ON od.productid = p.productid	
+GROUP BY p.productid
+ORDER BY SUM(od.quantity) DESC
+LIMIT 1
+
+-- 33. Create a report that shows the ProductName, UnitPrice, CategoryName,
+-- SupplierID, CompanyName from the products, suppliers and categories table.
+
+SELECT p.productname, p.unitprice, c.categoryname, s.supplierid, s.companyname 
+FROM products p
+INNER JOIN categories c ON p.categoryid = c.categoryid
+INNER JOIN suppliers s ON p.supplierid = s.supplierid
+
+-- 34. Create a report that shows the CompanyName, sum of Freight from the orders 
+-- table with sum of freight greater $200, grouped by CompanyName, order from 
+-- highest sum of freight to lowerst sum of freight.
+
+SELECT c.companyname, SUM(o.freight)
+FROM orders o
+INNER JOIN customers c ON o.customerid = c.customerid
+GROUP BY c.companyname
+HAVING SUM(o.freight) > 200
+ORDER BY SUM(o.freight) DESC
+
+-- 35. Create a report that shows the OrderID, ContactName, TotalPrice, 
+-- TotalQuantity, Discount for every order that had a discount given.
+
+SELECT od.orderid, c.contactname, 
+	ROUND(CAST((SUM(od.quantity * od.unitprice)) AS numeric), 2) totalvalue, 
+	SUM(quantity) numberofitems, od.discount
+FROM order_details od
+INNER JOIN orders o ON od.orderid = o.orderid
+INNER JOIN customers c ON o.customerid = c.customerid
+WHERE od.discount != 0
+GROUP BY od.orderid, c.contactname, od.discount
+ORDER BY orderid ASC
+
+-- 36. Create a report that shows the EmployeeID, the LastName and FirstName as 
+-- employee, and the LastName and FirstName of who they report to as manager from 
+-- the employees table sorted employeeid. HINT: This is a SelfJoin.
+
+SELECT e.employeeid, e.lastname || ', ' || e.firstname AS employeename,
+	m.lastname || ', ' || m.firstname AS managername
+FROM employees e
+LEFT JOIN employees m ON e.reportsto = m.employeeid
+ORDER BY employeeid ASC
+
+-- 37. Create a report that shows the average, minimum and maximum UnitPrice of 
+-- all products as AveragePrice, MinimumPrice and MaximumPrice respectively.
+SELECT 
+	ROUND (CAST (AVG (p.unitprice) AS numeric), 2) AveragePrice, 
+	MIN (p.unitprice) MinimumPrice,
+	MAX (p.unitprice) MaximumPrice
+FROM products p
+
+-- 38. Create a view named Order-CustomerInfo that shows the OrderID, CustomerID, 
+-- CompanyName, ContactName, ContactTitle, Address, City, Country, Phone, 
+-- OrderDate, RequiredDate, ShippedDate from the customers and orders table. 
+
+CREATE VIEW "Order-CustomerInfo" AS
+	SELECT o.orderid, c.companyname, c.contactname, c.contacttitle, c.address, 
+		c.city, c.country, c.phone, o.orderdate, o.requireddate, o.shippeddate
+	FROM orders o
+	INNER JOIN customers c ON o.customerid = c.customerid
+
+SELECT * FROM "Order-CustomerInfo"
+
+-- 39. Change the name of the view you created from customerinfo to customer 
+-- details.
+
+ALTER VIEW "Order-CustomerInfo"
+RENAME TO "Order-CustomerDetails"
+
+-- 40. Create a view named ProductDetails that shows the ProductID, ProductName, 
+-- CompanyName, CategoryName, Description, QuantityPerUnit, UnitPrice, 
+-- UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued from the supplier,
+-- products and categories tables. HINT: Create a View
+
+CREATE VIEW "ProductDetails" AS
+	SELECT p.productid, p.productname, s.companyname, c.categoryname, c.description,
+		p.quantityperunit, p.unitprice, p.unitsinstock, p.unitsonorder, 
+		p.reorderlevel, p.discontinued
+	FROM categories c
+	INNER JOIN products p ON c.categoryid = p.categoryid
+	INNER JOIN suppliers s ON p.supplierid = s.supplierid
+	
+SELECT * FROM "ProductDetails"
+
+-- 41. Drop the customer details view.
+
+DROP VIEW "Order-CustomerDetails"
+
+-- 42. Create a report that fetch the first 5 character of categoryName from 
+-- the category tables and renamed as ShortInfo.
+
+SELECT c.categoryname, LEFT(c.categoryname,5) ShortInfo
+FROM categories c
+
+-- 43. Create a copy of the shipper table as shippers_duplicate. Then insert a 
+-- copy of shippers data into the new table HINT: Create a Table, use the 
+-- LIKE Statement and INSERT INTO statement. 
+
+CREATE TABLE shippers_duplicate AS SELECT * FROM shippers
+
+				----- OR -----
+
+CREATE TABLE shippers_duplicate AS TABLE shippers WITH NO DATA
+INSERT INTO shippers_duplicate SELECT * FROM shippers
+
+-- 44. Bruh idk
+
+-- 45. Create a report that shows the ProductName and CompanyName from all 
+-- products in the Seafood category.
+
+SELECT p.productname, s.companyname
+FROM products p
+INNER JOIN suppliers s ON p.supplierid = s.supplierid
+WHERE p.categoryid = 8
+
+-- 46. Create a report that shows the CategoryID, CompanyName and ProductName 
+-- from all product in the categoryID 5.
+
+SELECT c.categoryid, s.companyname, p.productname 
+FROM products p
+LEFT JOIN categories c ON p.categoryid = c.categoryid
+LEFT JOIN suppliers s ON p.supplierid = s.supplierid
+WHERE p.categoryid = 5
+
+-- 47. Delete the shippers_duplicate table.
+
+DROP TABLE shippers_duplicate
+
+-- 48. Create a select statement that ouputs the fullname, title, and
+-- age for all employees. 
+
+SELECT e.firstname || ' ' || e.lastname fullname, e.title,
+	EXTRACT (YEAR FROM AGE (CURRENT_DATE, e.birthdate)) age
+FROM employees e
+
+-- 49. Create a report that shows the CompanyName and total number of orders by 
+-- customer, renamed as number of orders, since Decemeber 31, 1994. Show number 
+-- of orders greater than 10.
+
+SELECT *
+FROM (
+	SELECT c.companyname companyname, COUNT(o.orderid) numberoforders
+	FROM orders o
+	INNER JOIN customers c ON o.customerid = c.customerid
+	WHERE o.orderdate > '1994-12-31'
+	GROUP BY c.customerid
+) subq
+WHERE numberoforders > 10
+ORDER BY numberoforders DESC, companyname ASC
+
+-- 50. Create a select statement that ouputs the following from the product 
+-- table: productid, (productname "weight/is" quantityperunit "and costs $" 
+-- unitprice) as "ProductInfo"
+
+SELECT p.productid, p.productname || ' weighs/is ' || p.quantityperunit || 
+	' and costs $' || p.unitprice "ProductInfo"
+FROM products p
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
