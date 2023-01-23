@@ -1,3 +1,7 @@
+-- The queries included in this file do not come from a specific source, but are rather answers to various business cases I have come up with myself
+-- about the Northwind Database. These queries are more advanced than the ones included in my other .txt file, and show my knowledge of more
+-- complicated SQL statements such as RANK, LAG, CASE, etc. 
+								
 				Page Title
 
 -- Return Month, Product name, SalesForMonth, SalesForMonthRanking for nth best 
