@@ -357,7 +357,7 @@ CREATE TABLE shippers_duplicate AS SELECT * FROM shippers
 CREATE TABLE shippers_duplicate AS TABLE shippers WITH NO DATA
 INSERT INTO shippers_duplicate SELECT * FROM shippers
 
--- 44. Bruh idk
+-- 44.
 
 -- 45. Create a report that shows the ProductName and CompanyName from all 
 -- products in the Seafood category.
