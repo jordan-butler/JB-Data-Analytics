@@ -18,7 +18,7 @@ FROM (
 	FROM order_details od
 	INNER JOIN products p ON od.productid = p.productid
 	INNER JOIN orders o ON od.orderid = o.orderid
-	WHERE o.orderdate >= '1997-01-01' AND o.orderdate <= '1997-12-31'
+	WHERE EXTRACT (YEAR FROM o.orderdate) = 1997
 	GROUP BY EXTRACT (MONTH FROM o.orderdate), p.productid
 ) subq
 WHERE monthrank = n
