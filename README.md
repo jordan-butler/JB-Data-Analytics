@@ -1,5 +1,5 @@
 Hello reader! Welcome to my Github portfolio where I showcase my knowledge of SQL through queries of varying degrees of difficulty. Below will be the description of 
-each file that I have located within the SQL workspace folder.
+each file that I have located within the SQL Workspace folder.
 
 Northwind Sample Database Diagram:
     - Many if not all of the queries I have stored in my Github portfolio are based on the popular Northwind sample database which is based on a 
