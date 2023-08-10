@@ -1,22 +1,7 @@
-Hello reader! Welcome to my Github portfolio where I showcase my knowledge of SQL through queries of varying degrees of difficulty. Below will be the description of 
-each file that I have located within the SQL Workspace folder. Additionally, I will include a link to my Tableau portfolio where I have displayed a couple of different sample visualizations I have created.
+Hello reader! Welcome to my professional portfolio where I showcase my knowledge of different technologies, software, and languages that I have learned. Below is a current list of the files I have stored within my portfolio.
 
-Northwind Sample Database Diagram:
-    - Many if not all of the queries I have stored in my Github portfolio are based on the popular Northwind sample database which stores data on a 
-      fictitious food/drink import and export company. This file contains the Entity Relationship Diagram of this database from those who would like to 
-      compare the queries side by side with the Northwind ERD.
+    SQL Workspace: Contained within the SQL Workspace folder are a few different files containing numerous sample queries of varying degrees of difficulty that I
+    have written. There will be a seperate README file within this folder containing descriptions of each SQL Workspace file.
 
-50 Basic SQL Understanding Queries:
-    - These are 50 different beginner practice queries I wrote from a worksheet that I found online. These queries use the Northwind database and consist of 
-      various beginner-level SQL maneuvers such as JOINs, aliasing, filtering using non-basic WHERE clauses, and more. This was the first practical example I had
-      of writing queries from scratch and connecting to an external database through a hosted server.
-
-Intermediate-Advanced SQL Query Practice:
-    - While the 50 basic sql understanding queries file consists solely of pre-written questions found from a worksheet online, each query in this file 
-      is written in response to hypothetical questions I came up with regarding the ins and outs of the Northwind business model. Many queries 
-      are practical business cases that would likely be included in real-life reports (using LAG and LEAD to compare price changes amongst products) while
-      others are more impractical and are simply responses to what-if questions I came up with (ranking product sales by what letter they start with). Each query 
-      written was in response to me coming up with prompts that would force me learn new keywords or shortcuts/workarounds. In conclusion, this file showcases my 
-      thought-process to solving sample business cases through the use of reasonably complex SQL queries and is a good summarization of my overall SQL skillset.
-
-      
+    Tableau: This file will include a link to my Tableau portfolio where a couple of different sample visualizations I have created are on display. If you're a 
+    baseball fan I highly recommend checking out my MLB Franchise Comparison visualization. 
