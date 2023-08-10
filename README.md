@@ -2,7 +2,7 @@ Hello reader! Welcome to my Github portfolio where I showcase my knowledge of SQ
 each file that I have located within the SQL Workspace folder. Additionally, I will have a link to my Tableau portfolio should you want to take a look at that.
 
 Northwind Sample Database Diagram:
-    - Many if not all of the queries I have stored in my Github portfolio are based on the popular Northwind sample database which contains data of a 
+    - Many if not all of the queries I have stored in my Github portfolio are based on the popular Northwind sample database which stores data on a 
       fictitious food/drink import and export company. This file contains the Entity Relationship Diagram of this database from those who would like to 
       compare the queries side by side with the Northwind ERD.
 
