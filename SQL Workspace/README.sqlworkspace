@@ -1,8 +1,8 @@
 Below I have listed a description of each file located within the SQL Workspace folder. Enjoy!
 
-Northwind Sample Database Diagram:
+Northwind-Sample-Database-Diagram.pdf
     - Many if not all of the queries I have stored in my Github portfolio are based on the popular Northwind sample database which stores data on a 
-      fictitious food/drink import and export company. This file contains the Entity Relationship Diagram of this database from those who would like to 
+      fictitious food/drink import and export company. This file contains the Entity Relationship Diagram of this database for those who would like to 
       compare the queries side by side with the Northwind ERD.
 
 50 Basic SQL Understanding Queries:
