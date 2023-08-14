@@ -14,6 +14,6 @@ Intermediate-Advanced SQL Query Practice:
     - While the 50 basic sql understanding queries file consists solely of pre-written questions found from a worksheet online, each query in this file 
       is written in response to hypothetical questions I came up with regarding the ins and outs of the Northwind business model. Many queries 
       are practical business cases that would likely be included in real-life reports (ex. using LAG and LEAD to compare price changes amongst products) while
-      others are more impractical and are simply responses to what-if questions I came up with (ranking product sales by what letter they start with). Each query 
+      others are more impractical and are simply responses to what-if questions I came up with (ex. ranking product sales by what letter they start with). Each query 
       written was in response to me coming up with prompts that would force me learn new keywords or shortcuts/workarounds. In conclusion, this file showcases my 
       thought-process to solving sample business cases through the use of reasonably complex SQL queries and is a good summarization of my overall SQL skillset.
