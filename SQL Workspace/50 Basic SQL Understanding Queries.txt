@@ -1,8 +1,4 @@
--- In this file, I have posted my solutions to 50 different practice queries on the Northwind Database sourced from an online PDF file. These queries were designed
--- to show basic understanding of SQL queries and related functions, and were developed using PostgreSQL.
-				
-				
-				50 Practice Queries of Northwind Database
+50 Practice Queries of Northwind Database
 
 -- 1. Create a report that shows the CategoryName and Description from the categories 
 -- table sorted by CategoryName.
