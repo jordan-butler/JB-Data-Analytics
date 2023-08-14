@@ -1,4 +1,4 @@
--- ** All queries seen below were developed using PostgreSQL. **
+-- ** All queries seen below were developed using PostgreSQL **
 
 50 Practice Queries of Northwind Database
 
