@@ -10,7 +10,7 @@ Northwind-Sample-Database-Diagram.pdf
       various beginner-level SQL maneuvers such as JOINs, aliasing, filtering using non-basic WHERE clauses, and more. This was also the first practical example I had
       of writing queries from scratch and connecting to an external database through a hosted server.
 
-Intermediate-Advanced SQL Query Practice:
+SQL Business Case Solutions:
     - While the 50 basic sql understanding queries file consists solely of pre-written questions found from a worksheet online, each query in this file 
       is written in response to hypothetical questions I came up with regarding the ins and outs of the Northwind business model. Many queries 
       are practical business cases that would likely be included in real-life reports (ex. using LAG and LEAD to compare price changes amongst products) while
