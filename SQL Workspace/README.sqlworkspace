@@ -5,7 +5,7 @@ Northwind-Sample-Database-Diagram.pdf
       fictitious food/drink import and export company. This file contains the Entity Relationship Diagram of this database for those who are unfamiliar with this 
       particular database and would like to compare the queries side by side with the Northwind ERD.
 
-50 Basic SQL Understanding Queries:
+Basic SQL Queries:
     - These are 50 different beginner practice queries I wrote answering prompts from a online sample worksheet. These queries use the Northwind database and consist of 
       various beginner-level SQL maneuvers such as JOINs, aliasing, filtering using non-basic WHERE clauses, and more. This was also the first practical example I had
       of writing queries from scratch and connecting to an external database through a hosted server.
