@@ -6,8 +6,8 @@ Northwind-Sample-Database-Diagram.pdf
       particular database and would like to compare the queries side by side with the Northwind ERD.
 
 50 Basic SQL Understanding Queries:
-    - These are 50 different beginner practice queries I wrote from a worksheet that I found online. These queries use the Northwind database and consist of 
-      various beginner-level SQL maneuvers such as JOINs, aliasing, filtering using non-basic WHERE clauses, and more. This was the first practical example I had
+    - These are 50 different beginner practice queries I wrote answering prompts from a online sample worksheet. These queries use the Northwind database and consist of 
+      various beginner-level SQL maneuvers such as JOINs, aliasing, filtering using non-basic WHERE clauses, and more. This was also the first practical example I had
       of writing queries from scratch and connecting to an external database through a hosted server.
 
 Intermediate-Advanced SQL Query Practice:
