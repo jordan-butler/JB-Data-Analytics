@@ -1,3 +1,5 @@
+-- ** All queries seen below were devloped using PostgreSQL. **
+
 50 Practice Queries of Northwind Database
 
 -- 1. Create a report that shows the CategoryName and Description from the categories 
