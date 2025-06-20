@@ -1,8 +1,10 @@
 Welcome to my data analytics portfolio! This repository showcases a variety of projects I've completed that demonstrate my skills in SQL, Python, statistical modeling, dashboard development, and business analysis. It also includes supporting reports and visualizations used to drive real-world decisions across operations, security, and merchandising functions.
 
 Featured Projects:
-
+- How to Beat Vegas Using Tree-Based Models
+- Impact of Usage and Storage Pressurization on Tennis Ball Bounce
+- Predicting Hospital Patient Readmission with Medical History
 
 
 Tableau Portfolio Link: 
-This file will include a link to my Tableau portfolio where a couple of different sample visualizations I have created are on display. If you're a baseball fan I highly recommend checking out my MLB Franchise Comparison visualization. 
+This file includes a link to my Tableau portfolio where I have a sample dashboard comparing MLB franchise value and success over a 5 year span.
